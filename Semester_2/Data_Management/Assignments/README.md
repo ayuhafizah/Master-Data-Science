@@ -157,11 +157,6 @@ pip install pyspark pandas matplotlib jupyter
 
 ✅ **Spark MLlib** successfully scaled the classification task using distributed computing
 
-## 📌 Notes
-
-- **Local execution:** `local[1]` is used for Windows stability
-- **Cross-validation:** 2-fold CV to tune hyperparameters efficiently
-- **Balanced dataset:** No class imbalance issues; accuracy is a reliable metric
 
 ## 👤 Author
 
