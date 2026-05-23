@@ -6,20 +6,24 @@ Course materials, notes, assignments, and projects for Data Management.
 
 - **Lecture Notes** - Comprehensive lecture notes
 - **Assignments** - Assignments and solutions
-- **Projects** - Course projects and implementations
-- **Data** - Datasets used in coursework
-- **Resources** - Reference materials and documentation
 
 ## 📝 Topics Covered
 
-- Database Design and Modeling
-- SQL and Relational Databases
-- NoSQL Databases (MongoDB, Cassandra, etc.)
-- Big Data Technologies (Spark, Hadoop)
-- Data Warehousing
-- ETL Processes
-- Data Quality and Governance
-
----
-
-Add your files and materials here!
+- Introduction to Data Management
+- Unix Commands and Data Handling Basics
+- Data Models and Database Design
+- Data Centre Concepts
+- Big Data Technologies:
+  - Hadoop Ecosystem
+  - HDFS (Hadoop Distributed File System)
+  - Apache Pig
+  - Apache Spark
+- Data Integration and Query Tools:
+  - Hive
+  - Sqoop
+  - MySQL
+- NoSQL Databases:
+  - HBase
+  - Cassandra
+- Distributed Systems Concepts:
+  - CAP Theorem
