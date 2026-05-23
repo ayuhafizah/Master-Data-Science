@@ -7,9 +7,11 @@ This project implements and compares three classification models using Spark MLl
 
 ## 📂 Files Included
 
-- Iris_Classification_SparkMLlib.ipynb → Main assignment notebook
-- iris.data → Dataset used for classification
-- README.md → Project overview and instructions
+| File | Description |
+|---|---|
+| `Assignment1_P162895.ipynb` | Main assignment notebook |
+| `iris.data` | Dataset used for classification |
+| `README.md` | Project overview and instructions |
 
 ## 📋 Overview
 
@@ -113,7 +115,6 @@ Three classification algorithms are implemented and compared:
 - **Spark MLlib** - Machine learning library
 - **Pandas** - Data manipulation and visualization
 - **Matplotlib** - Data visualization
-- **Python 3** - Programming language
 - **Jupyter Notebook** - Interactive development
 
 ## 📂 Project Structure
@@ -164,8 +165,4 @@ pip install pyspark pandas matplotlib jupyter
 
 ## 👤 Author
 
-**P162895** - Data Management Assignment
-
----
-
-*Last Updated: 2026-05-23*
+**P162895**
