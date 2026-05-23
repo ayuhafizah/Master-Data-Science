@@ -1,4 +1,15 @@
-# Assignment 1: Iris Classification using Spark MLlib
+# 🌸 Assignment 1: Iris Classification using Spark MLlib
+
+This project implements and compares three classification models using Spark MLlib on the Iris dataset:
+- Logistic Regression
+- Decision Tree
+- Random Forest
+
+## 📂 Files Included
+
+- Iris_Classification_SparkMLlib.ipynb → Main assignment notebook
+- iris.data → Dataset used for classification
+- README.md → Project overview and instructions
 
 ## 📋 Overview
 
