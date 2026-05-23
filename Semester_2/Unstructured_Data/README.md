@@ -19,7 +19,3 @@ Course materials, notes, assignments, and projects for Unstructured Data.
 - Audio Processing
 - Information Retrieval
 - Topic Modeling
-
----
-
-Add your files and materials here!
