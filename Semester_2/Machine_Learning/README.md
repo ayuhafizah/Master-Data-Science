@@ -12,14 +12,3 @@ Course materials, notes, assignments, and projects for Machine Learning.
 
 ## 📝 Topics Covered
 
-- Supervised Learning (Regression, Classification)
-- Unsupervised Learning (Clustering, Dimensionality Reduction)
-- Neural Networks and Deep Learning
-- Ensemble Methods
-- Model Evaluation and Validation
-- Hyperparameter Tuning
-- Feature Engineering
-
----
-
-Add your files and materials here!
