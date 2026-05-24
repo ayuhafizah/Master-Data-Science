@@ -1,21 +1,20 @@
 # Unstructured Data
 
-Course materials, notes, assignments, and projects for Unstructured Data.
+Course materials, notes, and projects for Unstructured Data.
 
 ## 📁 Contents
 
 - **Lecture Notes** - Comprehensive lecture notes
-- **Assignments** - Assignments and solutions
-- **Projects** - Text mining and NLP implementations
+- **Projects** - Project 1 and Project 2
 - **Data** - Unstructured datasets
-- **Resources** - Reference materials and documentation
 
 ## 📝 Topics Covered
 
-- Text Mining and NLP
-- Natural Language Processing
-- Sentiment Analysis
-- Image Processing and Computer Vision
-- Audio Processing
-- Information Retrieval
+- Text Mining
+- Text Exploration
 - Topic Modeling
+- Text Cluster
+- Sentiment Analysis
+- Image Processing
+- Audio Processing
+
