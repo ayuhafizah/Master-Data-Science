@@ -1,11 +1,10 @@
 # Research Methodology
 
-Course materials, notes, assignments, and projects for Research Methodology.
+Course materials, notes, and Research Proposal for Research Methodology.
 
 ## 📁 Contents
 
 - **Lecture Notes** - Comprehensive lecture notes
-- **Assignments** - Assignments and solutions
 
 ## 📝 Topics Covered
 
