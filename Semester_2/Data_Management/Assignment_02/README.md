@@ -106,10 +106,10 @@ The following tables were created and populated during the assignment:
 ```text
 Assignment_02/
 │
-├── README.md
+├── screenshots/
 ├── Assignment02_P162895.json
 ├── Assignment_02.pdf
-└── screenshots/
+└── README.md
 ```
 
 ---
