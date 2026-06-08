@@ -163,6 +163,8 @@ The repository includes screenshots of:
 - 👨‍🔬 Scientists aged 30–40 analysis
 - ✅ Cassandra validation results
 
+All screenshots are available in the `screenshots` folder.
+
 ---
 
 ## 📝 Notes
