@@ -1,297 +1,172 @@
-# Assignment 02: Apache Spark & Cassandra Data Pipeline
+# 🎬 Assignment 02: MovieLens Data Analysis using Apache Spark and Cassandra
 
-## Overview
+## 📖 Overview
 
-This assignment develops a **Python-based data pipeline** using **Apache Spark** and **Apache Cassandra** on the **MovieLens 100K dataset**. The project demonstrates core data management concepts including data processing, storage, and querying in a distributed environment.
+This assignment demonstrates the implementation of a data processing and storage pipeline using Apache Spark and Apache Cassandra on the MovieLens 100K dataset. The project was developed using Apache Zeppelin in the HDP Sandbox environment and showcases distributed data processing, analytical querying, and NoSQL data storage.
 
----
-
-## Project Objectives
-
-- Build an end-to-end data pipeline using Apache Spark
-- Implement a NoSQL data warehouse using Apache Cassandra
-- Perform ETL (Extract, Transform, Load) operations on the MovieLens dataset
-- Execute analytical queries on distributed data
-- Demonstrate reproducibility and best practices in data management
+The workflow includes loading data from HDFS, transforming data using Spark, performing analytical tasks using Spark SQL, storing results in Cassandra, and validating the stored results.
 
 ---
 
-## Dataset
+## 🖥️ Software Environment
 
-**MovieLens 100K Dataset**
-- **Size**: 100,000 movie ratings
-- **Source**: GroupLens Research
-- **Contents**: User ratings, movie metadata, and user demographics
-- **Format**: Structured tabular data suitable for relational and NoSQL storage
+| Component | Version |
+|------------|------------|
+| Python | 2.7.5 |
+| Apache Spark | 2.3.0.2.6.5.0-292 |
+| Apache Cassandra | 3.11.13 |
+| CQLSH | 5.0.1 |
+| Storage System | HDFS |
+| Notebook Platform | Apache Zeppelin |
 
----
+### 📚 Libraries Used
 
-## Technologies & Requirements
-
-### Core Technologies
-- **Python 3.7+**
-- **Apache Spark 2.4+** (PySpark)
-- **Apache Cassandra 3.11+**
-- **Jupyter Notebook** (for interactive development)
-
-### Python Dependencies
-```
-pyspark>=2.4.0
-cassandra-driver>=3.25.0
-pandas>=1.0.0
-numpy>=1.18.0
-matplotlib>=3.0.0
-seaborn>=0.10.0
-```
+- pyspark
+- pyspark.sql
+- pyspark.sql.functions
+- pyspark.sql.types
+- pyspark.sql.window
+- Cassandra Spark Connector
 
 ---
 
-## Setup & Installation
+## 🎥 Dataset
 
-### 1. Prerequisites
-Ensure you have the following installed:
-- Java Development Kit (JDK) 8 or later
-- Python 3.7+
-- pip or conda package manager
+### MovieLens 100K Dataset
 
-### 2. Install Dependencies
+The MovieLens 100K dataset contains movie ratings provided by users and includes movie metadata and user demographic information.
 
-Using pip:
-```bash
-pip install -r requirements.txt
-```
+### 📂 Files Used
 
-Or manually:
-```bash
-pip install pyspark cassandra-driver pandas numpy matplotlib seaborn
-```
+- u.data
+- u.item
+- u.user
 
-### 3. Start Apache Cassandra
+### 📊 Dataset Summary
 
-**Option A: Local Installation**
-```bash
-# On macOS (via Homebrew)
-brew services start cassandra
-
-# On Linux/Windows, follow official Cassandra documentation
-cassandra -f  # Run in foreground for testing
-```
-
-**Option B: Docker (Recommended)**
-```bash
-docker run -d --name cassandra -p 9042:9042 cassandra:latest
-```
-
-### 4. Configure Spark
-```bash
-# Set SPARK_HOME environment variable
-export SPARK_HOME=/path/to/spark
-export PATH=$SPARK_HOME/bin:$PATH
-```
+- 👥 943 users
+- 🎬 1,682 movies
+- ⭐ 100,000 ratings
 
 ---
 
-## Project Structure
+## 🔄 Project Workflow
 
-```
+1. 📥 Load MovieLens data from HDFS.
+2. 🧩 Create RDDs and parse raw records.
+3. 🔄 Convert RDDs into Spark DataFrames.
+4. 🧹 Perform data cleaning and preprocessing.
+5. 🗂️ Register temporary Spark SQL views.
+6. 📈 Execute analytical queries using Spark SQL.
+7. 💾 Store analytical results in Cassandra tables.
+8. ✅ Retrieve results from Cassandra for validation.
+
+---
+
+## 📊 Analytical Tasks
+
+### 🎯 Task 1: Average Rating per Movie
+
+Calculate the average rating and total number of ratings received by each movie.
+
+### 🏆 Task 2: Top 10 Highest Rated Movies
+
+Identify the top 10 highest-rated movies among movies with at least 50 ratings.
+
+### 🎭 Task 3: Favourite Genre Analysis
+
+Determine the favourite movie genre of active users who have rated at least 50 movies.
+
+### 👶 Task 4: Users Under 20 Years Old
+
+Identify users whose age is below 20 years old.
+
+### 👨‍🔬 Task 5: Scientists Aged 30–40
+
+Identify users whose occupation is scientist and whose age is between 30 and 40 years old.
+
+---
+
+## 🗄️ Cassandra Tables
+
+The following tables were created and populated during the assignment:
+
+- ratings
+- movies
+- average_ratings
+- top10_movies
+- favourite_genres
+- users_under_20
+- scientists_30_40
+
+---
+
+## 📁 Repository Structure
+
+```text
 Assignment_02/
-├── README.md                          # This file
-├── Assignment02_P162895.json         # Main notebook/assignment file
-├── Assignment_02.pdf                 # Assignment specifications
-└── requirements.txt                  # Python dependencies (optional)
+│
+├── README.md
+├── Assignment02_P162895.json
+├── Assignment_02.pdf
+└── screenshots/
 ```
 
 ---
 
-## Reproducibility Instructions
+## 🚀 Reproducibility Instructions
 
-### Step 1: Prepare the Environment
-```bash
-# Clone or download the assignment files
-cd Semester_2/Data_Management/Assignment_02/
+### Step 1: Start Services
 
-# Create a virtual environment (optional but recommended)
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+Start Hadoop, Spark, Cassandra, and Zeppelin services.
 
-# Install dependencies
-pip install -r requirements.txt
-```
+### Step 2: Upload Dataset
 
-### Step 2: Set Up Cassandra
+Upload the MovieLens dataset files into HDFS.
 
-Ensure Cassandra is running on `localhost:9042` (default port).
+### Step 3: Import Notebook
 
-```bash
-# Verify Cassandra connection
-python -c "from cassandra.cluster import Cluster; \
-cluster = Cluster(['127.0.0.1']); \
-session = cluster.connect(); \
-print('Connected to Cassandra'); \
-session.shutdown()"
-```
+Import `Assignment02_P162895.json` into Apache Zeppelin.
 
-### Step 3: Initialize the Database
+### Step 4: Execute Notebook
 
-The notebook will automatically:
-1. Create necessary Cassandra keyspaces and tables
-2. Load the MovieLens dataset
-3. Process data using Spark
-
-### Step 4: Run the Notebook
-
-```bash
-jupyter notebook Assignment02_P162895.ipynb
-```
-
-Or if using the JSON format:
-- Import the notebook file into your Jupyter environment
-- Execute cells sequentially from top to bottom
-- Monitor console output for warnings/errors
+Run all notebook cells sequentially from top to bottom.
 
 ### Step 5: Validate Results
 
-Check that:
-- ✅ Data successfully loaded into Cassandra tables
-- ✅ Spark transformations completed without errors
-- ✅ Query results match expected outputs
-- ✅ Visualizations are generated
+Verify that:
+
+- ✅ Cassandra tables are successfully created.
+- ✅ Data is written into Cassandra.
+- ✅ Data can be read back from Cassandra.
+- ✅ Analytical results match expected outputs.
+- ✅ Visualisations are displayed correctly.
 
 ---
 
-## Key Analysis & Expected Outputs
+## ✅ Validation
 
-### Data Pipeline Stages
+The analytical results were written to Cassandra and subsequently loaded back into Spark DataFrames for validation. Record counts and sample outputs were checked to ensure successful data storage and retrieval.
 
-1. **Extract**: Load MovieLens dataset from source files
-2. **Transform**: Clean, validate, and enrich data using Spark
-3. **Load**: Persist processed data to Cassandra
-
-### Analytical Queries
-
-Examples of queries performed:
-- User rating statistics (mean, distribution)
-- Most-rated movies
-- Genre preferences by demographic
-- Rating trends over time
-- User similarity metrics
-
-### Visualizations
-
-The notebook generates:
-- **Distribution plots** of ratings
-- **Heatmaps** of genre preferences
-- **Bar charts** of top-rated movies
-- **Time series** of rating trends
-- **Demographic analysis** charts
+This confirms the successful integration of Apache Spark and Apache Cassandra within a distributed data processing environment.
 
 ---
 
-## Expected Outputs
+## 📸 Screenshots
 
-After successful execution, you should see:
+The repository includes screenshots of:
 
-1. **Console Output**
-   - Confirmation of Cassandra connection
-   - Spark job progress messages
-   - Row counts from loaded data
-
-2. **Generated Files** (if applicable)
-   - CSV exports of analysis results
-   - PNG/PDF visualizations
-
-3. **Cassandra Tables** with data:
-   - `movies` - Movie metadata
-   - `ratings` - User ratings
-   - `users` - User demographics
-   - *Additional tables per assignment requirements*
+- 🖥️ Environment setup
+- 🏆 Top 10 highest-rated movies visualization
+- 🎭 Favourite genre visualization
+- 👶 Users under 20 analysis
+- 👨‍🔬 Scientists aged 30–40 analysis
+- ✅ Cassandra validation results
 
 ---
 
-## Troubleshooting
+## 📝 Notes
 
-### Issue: Cannot connect to Cassandra
-```
-Error: cassandra.cluster.NoHostAvailable
-```
-**Solution**: 
-- Verify Cassandra is running: `ps aux | grep cassandra`
-- Check port 9042 is accessible: `telnet localhost 9042`
-- Restart Cassandra service
+This assignment was developed using Zeppelin. Therefore, the notebook is provided in Zeppelin JSON format rather than Jupyter Notebook (.ipynb) format.
 
-### Issue: Out of Memory
-```
-Error: java.lang.OutOfMemoryError
-```
-**Solution**:
-- Increase Spark executor memory:
-  ```bash
-  spark-submit --driver-memory 4g --executor-memory 4g
-  ```
-
-### Issue: Notebook kernel dies
-**Solution**:
-- Restart Jupyter kernel
-- Clear all outputs: Kernel → Restart & Clear Output
-- Reinstall dependencies
-
-### Issue: Python/Java version incompatibility
-**Solution**:
-- Verify Java version: `java -version`
-- Use Java 8+: `export JAVA_HOME=/path/to/jdk8+`
-
----
-
-## How to Reproduce
-
-To fully reproduce this analysis:
-
-1. **Follow the setup steps** above in order
-2. **Execute the notebook cells** sequentially
-3. **Monitor outputs** at each stage
-4. **Compare results** with provided assignment specifications
-5. **Validate data integrity** in Cassandra tables
-
-For non-deterministic operations (e.g., sampling), note the random seed used in the notebook to ensure reproducibility.
-
----
-
-## Code Quality & Best Practices
-
-This assignment demonstrates:
-- ✅ Modular, well-commented code
-- ✅ Proper error handling
-- ✅ Data validation at each pipeline stage
-- ✅ Efficient Spark transformations
-- ✅ Reproducible random seeds (where applicable)
-- ✅ Documentation of assumptions and limitations
-
----
-
-## References
-
-- [MovieLens Dataset Documentation](https://grouplens.org/datasets/movielens/)
-- [Apache Spark Documentation](https://spark.apache.org/docs/latest/)
-- [Apache Cassandra Documentation](https://cassandra.apache.org/doc/latest/)
-- [PySpark API Reference](https://spark.apache.org/docs/latest/api/python/)
-
----
-
-## Author
-
-**Student ID**: P162895  
-**Course**: Semester 2 - Data Management  
-**Date**: 2026
-
----
-
-## Notes
-
-- This assignment runs on a single machine; for production scaling, increase Cassandra cluster nodes
-- Dataset should be downloaded separately if not included in the repository
-- All code is tested with the specified versions; compatibility with newer versions not guaranteed
-- Contact the course instructor for assignment-specific clarifications
-
----
-
-**Last Updated**: June 2026
+All analytical tasks, visualisations, and Cassandra integration were successfully executed within the HDP Sandbox environment.
