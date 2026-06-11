@@ -50,6 +50,55 @@ The MovieLens 100K dataset contains movie ratings provided by users and includes
 
 ---
 
+### 📊 Dataset Overview
+
+The MovieLens 100K dataset contains movie ratings collected from users of the MovieLens recommendation platform.
+
+| Dataset File | Description | Records |
+|-------------|-------------|----------|
+| u.user | User demographic information | 943 users |
+| u.item | Movie information and genres | 1,682 movies |
+| u.data | User movie ratings | 100,000 ratings |
+
+### Dataset Schema
+
+#### 👥 Users Dataset (u.user)
+
+| Column | Description |
+|----------|-------------|
+| user_id | Unique user identifier |
+| age | User age |
+| gender | User gender |
+| occupation | User occupation |
+| zip_code | User ZIP code |
+
+#### 🎬 Movies Dataset (u.item)
+
+| Column | Description |
+|----------|-------------|
+| movie_id | Unique movie identifier |
+| title | Movie title |
+| release_date | Movie release date |
+| genres | Movie genre indicators |
+
+#### ⭐ Ratings Dataset (u.data)
+
+| Column | Description |
+|----------|-------------|
+| user_id | User identifier |
+| movie_id | Movie identifier |
+| rating | Rating score (1–5) |
+| timestamp | Rating timestamp |
+
+### 📈 Dataset Statistics
+
+- 👥 Total Users: **943**
+- 🎬 Total Movies: **1,682**
+- ⭐ Total Ratings: **100,000**
+- 🎭 Total Genres: **19**
+
+---
+
 ## 🔄 Project Workflow
 
 1. 📥 Load MovieLens data from HDFS.
@@ -164,6 +213,17 @@ The repository includes screenshots of:
 - ✅ Cassandra validation results
 
 All screenshots are available in the `screenshots` folder.
+
+---
+## 📈 Sample Visualizations
+
+### 🏆 Top 10 Highest Rated Movies
+
+![Top 10 Movies](screenshots/top10_movies_chart.png)
+
+### 🎭 Favourite Genre Distribution
+
+![Favourite Genres](screenshots/favourite_genres_chart.png)
 
 ---
 
