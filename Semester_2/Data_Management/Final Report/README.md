@@ -73,7 +73,7 @@ The dataset consists of two series:
 * 🧹 Perform data cleaning
 * ⚙️ Perform feature engineering
 * 📊 Conduct exploratory data analysis (EDA)
-* 📈 Generate insights and recommendations
+* 📈 Generate insights, recommendations and conclusion
 
 ---
 
@@ -108,7 +108,7 @@ The following Hive operations were completed:
 * Create external Hive table
 * Load dataset from HDFS
 * Query dataset using Hive SQL
-* Verify successful data loading
+* Verify successful data loading and querying
 
 ---
 
@@ -150,11 +150,11 @@ Download the **Annual Real GDP & GNI (1970–2025)** dataset from OpenDOSM or us
 
 ### Step 2
 
-Upload the dataset into **Hadoop Distributed File System (HDFS)**.
+Upload the dataset into the **Hadoop Distributed File System (HDFS)**.
 
 ### Step 3
 
-Create the Apache Hive database and external table using the SQL commands provided in **`hive_queries_gdp_gni.sql`**.
+Create the Apache Hive database and external table using the SQL commands provided in **`hive_queries.sql`**.
 
 ### Step 4
 
@@ -177,13 +177,17 @@ Run all notebook cells sequentially from top to bottom to reproduce the analysis
 
 # ✅ Validation
 
-The dataset was successfully uploaded into HDFS and queried using Apache Hive. The queried data was subsequently analysed using Python to generate descriptive statistics, visualisations, and economic insights.
+The dataset was successfully uploaded into HDFS and queried using Apache Hive. The queried data was then analysed using Python to perform feature engineering, exploratory data analysis (EDA), and data visualisation.
 
-The successful integration of Apache Hive and Python demonstrates an effective big data analytics workflow for managing and analysing structured economic data.
+The successful execution of both Apache Hive and Python components demonstrates an effective big data analytics workflow for managing, analysing, and interpreting structured economic data.
 
 ---
 
 # 📝 Notes
 
-This project focuses on exploratory data analysis (EDA) rather than predictive modelling. Apache Hive was used for data management, while Python was used for preprocessing, analysis, and visualisation. Running the Apache Hive portion of this project requires access to a Hadoop environment with Apache Hive (e.g., HDP Sandbox or an equivalent Hadoop cluster). The Python notebook can be executed independently after the dataset has been exported from Hive.
+- This project focuses on exploratory data analysis (EDA) rather than predictive modelling.
+
+- Apache Hive was used for data management, while Python was used for preprocessing, feature engineering, exploratory data analysis, and visualisation.
+
+- Running the Apache Hive component of this project requires access to a Hadoop environment with Apache Hive (e.g., HDP Sandbox or an equivalent Hadoop cluster). The Python notebook can be executed independently after the dataset has been exported from Hive.
 
