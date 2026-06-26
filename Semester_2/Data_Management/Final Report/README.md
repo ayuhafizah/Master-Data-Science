@@ -131,6 +131,17 @@ Final_Report/
 
 ---
 
+# 📸 Screenshots
+The `screenshots` folder contains images documenting the Apache Hive workflow, including:
+
+- 📥 Downloading the dataset from OpenDOSM using `wget`
+- 📂 Uploading the dataset into HDFS
+- 🗄️ Creating the Apache Hive database
+- 📋 Creating the Hive external table
+- ✅ Executing Hive SQL queries and verifying successful data loading
+
+---
+
 # 🚀 Reproducibility Instructions
 
 ### Step 1
